@@ -45,4 +45,4 @@ fig = go.Figure(data=[go.Scatter3d(x=df2['X'], y=df2['Y'], z=df2['Frame'], mode=
 fig.update_layout(scene=dict(xaxis_title='x', yaxis_title='y', zaxis_title='Frame'))
 #write the animation to an HTML file
 pio.write_html(fig, file='animation.html', auto_play=True, animation_opts={'frame': {'duration': 30, 'redraw': False}, 'fromcurrent': True, 'mode': 'immediate', 'transition': {'duration': 30}})
-#mlab.show()
+mlab.show()
