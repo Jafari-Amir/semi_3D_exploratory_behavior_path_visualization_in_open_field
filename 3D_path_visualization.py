@@ -5,9 +5,8 @@ import pandas as pd
 import matplotlib.cm as cm
 import plotly.io as pio
 import plotly.graph_objects as go
-path = '/Users/your directory/'
-# read all csv files, this can draw morw than one csv file, 
-dfs = []
+path = '/Users/your_directory/'
+
 dfs = []
 for file in os.listdir(path):
     if file.endswith('.csv'):
