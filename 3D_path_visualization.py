@@ -8,6 +8,7 @@ import plotly.graph_objects as go
 path = '/Users/your directory/'
 # read all csv files, this can draw morw than one csv file, 
 dfs = []
+dfs = []
 for file in os.listdir(path):
     if file.endswith('.csv'):
         df = pd.read_csv(path+file)
@@ -36,12 +37,12 @@ ax.set_zlabel('Frame')
 plt.savefig('CUBIC_PATH.png', dpi=300)
 plt.show()
 #z = df['ROI_location'].map(location_mapping).values
-for i in range(len(z)):
-    mlab.points3d(df2['X'], df2['Y'], df2['Frame'], color=(0.8, 0.5, 0.3), scale_factor=5)
-# create the scatter plot
+mlab.points3d(df2['X'], df2['Y'], df2['Frame']/20, color=(0.8, 0.8 , 0.3), scale_factor=5)
+#create the scatter plot
 fig = go.Figure(data=[go.Scatter3d(x=df2['X'], y=df2['Y'], z=df2['Frame'], mode='markers', marker=dict(color=colors, size=z*3, opacity=0.9))])
-# add labels to the axes
+
+#add labels to the axes
 fig.update_layout(scene=dict(xaxis_title='x', yaxis_title='y', zaxis_title='Frame'))
-# write the animation to an HTML file
+#write the animation to an HTML file
 pio.write_html(fig, file='animation.html', auto_play=True, animation_opts={'frame': {'duration': 30, 'redraw': False}, 'fromcurrent': True, 'mode': 'immediate', 'transition': {'duration': 30}})
-mlab.show()
+#mlab.show()
